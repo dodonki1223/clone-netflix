@@ -1,3 +1,9 @@
+import axios from 'axios';
+
+export const api = axios.create({
+  baseURL: `https://api.themoviedb.org/3/`
+});
+
 const API_KEY = "";
 
 export const requests ={
