@@ -1,5 +1,4 @@
-import { api as axios } from '../request';
-import React, { useEffect, useState } from 'react';
+import { useMovies } from '../hooks/useMovies';
 import './Row.scss'
 
 const base_url = "https://image.tmdb.org/t/p/original";
@@ -10,26 +9,8 @@ type Props = {
   isLargeRow?: boolean;
 };
 
-type Movie = {
-  id: string;
-  name: string;
-  title: string;
-  original_name: string;
-  poster_path: string;
-  backdrop_path: string;
-};
-
 export const Row = ({ title, fetchUrl, isLargeRow }: Props) => {
-  const [movies, setMovies] = useState<Movie[]>([]);
-
-  useEffect(() => {
-    async function fetchData() {
-      const request:any = await axios.get(fetchUrl);
-      setMovies(request.data.results);
-      return request;
-    }
-    fetchData();
-  }, [fetchUrl]);
+  const { movies } = useMovies(fetchUrl);
 
   console.log(movies);
 
