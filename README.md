@@ -1,47 +1,49 @@
-# Getting Started with Create React App
+# Netflix クローン
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Zenn](https://zenn.dev/) で公開されている [【React+TypeScript】Netflixのクローンを作るチュートリアル](https://zenn.dev/gunners6518/books/4c4672f32dd100) の書籍の写経用リポジトリです。  
+一部、書籍のままでは動作しなかったので改修＆リファクタしてあります。
 
-## Available Scripts
+![sample](https://raw.githubusercontent.com/dodonki1223/image_garage/master/clone_netflix/sample.gif)
 
-In the project directory, you can run:
+## ⭐️環境
 
-### `yarn start`
+| 環境    | バージョン |
+|:--------|:----------:|
+| Node.js | 16.0.0     |
+| React   | 17以上     |
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 💻 開発
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Netflix クローンの動かし方など説明します。
 
-### `yarn test`
+### 🔧The Movie Database から API key を取得する
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+こちらに関しては [APIKeyの取得しpostmanからAPIを送る｜【React+TypeScript】Netflixのクローンを作るチュートリアル](https://zenn.dev/gunners6518/books/4c4672f32dd100/viewer/454bcb) を参考に取得してください。  
+API key を取得後、`./src/request.js` の `export const API_KEY = "";` の箇所に API key をセットしてください。
 
-### `yarn build`
+```js
+export const API_KEY = "取得した API Key";
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 💥Netflix クローンを起動する
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+ローカルで動かすための手順を記載します。
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### 依存関係のインストール
 
-### `yarn eject`
+```shell
+$ yarn install 
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### 起動させる
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+下記コマンドの実行後、http://localhost:3000 にアクセスしてください。
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```shell
+$ yarn start
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 🗯その他
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
+取得している画像のクリック後に表示されるトレーラー動画が画像と紐付いていないバグがあります。  
+ただ、取得するための API は間違っていなさそうな気がします……。ちゃんと確認する必要あるかもです🤔
