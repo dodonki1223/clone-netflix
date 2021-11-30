@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { api as axios } from '../request';
 
-type Movie = {
+export type Movie = {
   id: string;
   name: string;
   title: string;
